@@ -1,15 +1,31 @@
 <div class="container">
   <h1>User Form</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" required
-             [(ngModel)]="model.firstName" name="firstName"/>
+      <input type="text" class="form-control" id="firstName" required minlength="3"
+             [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel"/>
+      <div *ngIf="firstName.touched && firstName.errors">
+        <div class="alert alert-danger" *ngIf="firstName.errors.required">
+          First name is required.
+        </div>
+        <div class="alert alert-danger" *ngIf="firstName.errors.minlength">
+          First name should be minimum 3 characters.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required
-             [(ngModel)]="model.email" name="email"/>
+      <input type="text" class="form-control" id="email" required minlength="3"
+             [(ngModel)]="model.email" name="email" #email="ngModel"/>
+      <div *ngIf="email.touched && email.errors">
+        <div class="alert alert-danger" *ngIf="email.errors.required">
+          Email is required.
+        </div>
+        <div class="alert alert-danger" *ngIf="email.errors.minlength">
+          Email should be minimum 3 characters.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="country">Country</label>
@@ -18,6 +34,13 @@
         <option *ngFor="let c of countries" [value]="c">{{c}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!userForm.form.valid">Submit</button>
   </form>
+  <div [hidden]="!submitted">
+    You submitted the following:<br/>
+    First Name: {{model.firstName}}<br/>
+    Email: {{model.email}}<br/>
+    Country: {{model.country}}<br/>
+    <button class="btn btn-default" (click)="submitted=false">Remove</button>
+  </div>
 </div>
