@@ -7,15 +7,15 @@ import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form.component';
 import { LoginComponent } from './login.component';
 import { SearchComponent } from './search.component';
-
-import { LoginService } from './login.service';
+import { SpotifyComponent } from './spotify.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    SpotifyComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { LoginService } from './login.service';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [LoginService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
