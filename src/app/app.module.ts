@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form.component';
 import { LoginComponent } from './login.component';
+import { SearchComponent } from './search.component';
 
 import { LoginService } from './login.service';
 
@@ -13,7 +14,8 @@ import { LoginService } from './login.service';
   declarations: [
     AppComponent,
     UserFormComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
