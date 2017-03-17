@@ -3,14 +3,13 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {HomeComponent} from './home.component';
 import {NotFoundComponent} from './notfound.component';
-import {SpotifyComponent} from './spotify.component';
-import {UserFormComponent} from './user-form.component';
-import {ArtistComponent} from './artist.component';
+import {LoginComponent} from './login.component';
+
+import {AuthGuard} from './auth-guard.service';
+import {PreventUnsavedChangesGuard} from './prevent-unsaved-changes-guard.service';
 
 export const routing = RouterModule.forRoot([
-  {path: '', component: HomeComponent},
-  {path: 'spotify', component: SpotifyComponent},
-  {path: 'spotify/artist/:id/:name', component: ArtistComponent},
-  {path: 'signup', component: UserFormComponent},
+  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'login', component: LoginComponent, canDeactivate: [PreventUnsavedChangesGuard]},
   {path: '**', component: NotFoundComponent}
 ]);
