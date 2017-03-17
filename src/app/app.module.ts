@@ -1,13 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { UserFormComponent } from './user-form.component';
-import { LoginComponent } from './login.component';
-import { SearchComponent } from './search.component';
-import { SpotifyComponent } from './spotify.component';
+import {AppComponent} from './app.component';
+import {UserFormComponent} from './user-form.component';
+import {LoginComponent} from './login.component';
+import {SearchComponent} from './search.component';
+import {SpotifyComponent} from './spotify.component';
+
+import {HomeComponent} from './home.component';
+import {NotFoundComponent} from './notfound.component';
+
+import {routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -15,15 +20,19 @@ import { SpotifyComponent } from './spotify.component';
     UserFormComponent,
     LoginComponent,
     SearchComponent,
-    SpotifyComponent
+    SpotifyComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
