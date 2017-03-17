@@ -8,6 +8,7 @@ import {UserFormComponent} from './user-form.component';
 import {LoginComponent} from './login.component';
 import {SearchComponent} from './search.component';
 import {SpotifyComponent} from './spotify.component';
+import {ArtistComponent} from './artist.component';
 
 import {HomeComponent} from './home.component';
 import {NotFoundComponent} from './notfound.component';
@@ -22,7 +23,8 @@ import {routing} from './app.routing';
     SearchComponent,
     SpotifyComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,

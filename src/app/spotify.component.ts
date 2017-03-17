@@ -15,7 +15,7 @@ import {SpotifyService} from './spotify.service';
 </div>
 <div *ngFor="let artist of artists" class="media">
   <div class="media-left">
-    <a href="#">
+    <a [routerLink]="['artist', artist.id, artist.name]">
       <img class="media-object img" src="{{artist.images[2]?.url}}" alt="..."/>
     </a>
   </div>
